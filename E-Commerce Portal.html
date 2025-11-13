@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/project3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Portal</title>
+<link rel="stylesheet" href="./E-Commerce Portal_files/style2.css">
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+  <h1>ShopEase</h1>
+  <ul class="menu">
+    <li><a href="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/project3.html#home" class="active">Home</a></li>
+    <li><a href="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/project3.html#products">Products</a></li>
+    <li><a href="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/project3.html#register">Register</a></li>
+    <li><a href="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/project3.html#login">Login</a></li>
+    <li><a href="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/project3.html#contact">Contact</a></li>
+  </ul>
+</header>
+
+<!-- ===== HOME SECTION ===== -->
+<section id="home">
+  <h2>Welcome to ShopEase</h2>
+  <p>Your one-stop online shop for electronics, fashion, and more!</p>
+  <button onclick="scrollToSection(&#39;products&#39;)">Shop Now</button>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <h2>Our Products</h2>
+  <div class="product-list">
+    <div class="product-card">
+      <img src="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/earbuds.jpg" alt="Product 1">
+      <h3>Wireless Earbuds</h3>
+      <p>$39.99</p>
+      <button>Add to Cart</button>
+      <button>Add to Wishlist</button>
+    </div>
+    <div class="product-card">
+      <img src="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/smartwatch.jpg" alt="Product 2">
+      <h3>Smart Watch</h3>
+      <p>$89.99</p>
+      <button>Add to Cart</button>
+      <button>Add to Wishlist</button>
+    </div>
+    <div class="product-card">
+      <img src="file:///C:/Users/sahan/OneDrive/Desktop/wde_assignment3/headphones.jpg" alt="Product 3">
+      <h3>Bluetooth headphones</h3>
+      <p>$49.99</p>
+      <button>Add to Cart</button>
+      <button>Add to Wishlist</button>
+    </div>
+  </div>
+
+  <h3>Your Orders</h3>
+  <ul>
+    <li>Order #1001 - Delivered</li>
+    <li>Order #1002 - In Transit</li>
+  </ul>
+
+  <h3>Leave a Review</h3>
+  <textarea></textarea>
+  <button>Submit Review</button>
+</section>
+
+<!-- ===== REGISTRATION ===== -->
+<section id="register">
+  <h2>User Registration</h2>
+  <form onsubmit="return validateRegister()">
+    <label>Username:</label>
+    <input type="text" id="username" placeholder="Enter your username" required="">
+
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required="">
+
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter your password" required="">
+
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword" placeholder="Re-enter your password" required="">
+
+    <button type="submit">Register</button>
+  </form>
+</section>
+
+<!-- ===== LOGIN ===== -->
+<section id="login">
+  <h2>Login</h2>
+  <form onsubmit="return validateLogin()">
+    <label>Email:</label>
+    <input type="email" id="loginEmail" placeholder="Enter your email" required="">
+
+    <label>Password:</label>
+    <input type="password" id="loginPassword" placeholder="Enter your password" required="">
+
+    <button type="submit">Login</button>
+  </form>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form onsubmit="return sendMessage()">
+    <label>Name:</label>
+    <input type="text" id="contactName" placeholder="Your name">
+
+    <label>Email:</label>
+    <input type="email" id="contactEmail" placeholder="Your email">
+
+    <label>Message:</label>
+    <textarea id="contactMessage" placeholder="Your message"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>© 2025 ShopEase. All Rights Reserved.</p>
+</footer>
+
+<script>
+function validateRegister() {
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (username.length < 3) {
+    alert("Username must be at least 3 characters long.");
+    return false;
+  }
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters long.");
+    return false;
+  }
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return false;
+  }
+
+  alert("Registration Successful!");
+  return true;
+}
+
+// Login validation
+function validateLogin() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  if (email === "" || password === "") {
+    alert("Please fill in all fields.");
+    return false;
+  }
+
+  alert("Login Successful!");
+  return true;
+}
+
+// Contact form
+function sendMessage() {
+  const name = document.getElementById("contactName").value;
+  const email = document.getElementById("contactEmail").value;
+  const message = document.getElementById("contactMessage").value;
+
+  if (name === "" || email === "" || message === "") {
+    alert("All fields are required!");
+    return false;
+  }
+
+  alert("Message sent successfully!");
+  return true;
+}
+</script>
+
+
+
+</body></html>
